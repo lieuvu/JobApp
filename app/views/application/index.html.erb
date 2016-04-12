@@ -1,3 +1,21 @@
-<div class="center jumbotron">
-	<h1>Welcome to the Job App - Index</h1>
+<div class="container">
+		
+	<%= render "application/sidebar" %>
+	
+	<div class="view-content job-show col-sm-8">
+		<% @jobs.each do |job| %>
+			<div>
+				<h2>Job Titile: <%= job.job_title%></h2>
+				<p class="jobs-show-date-posted"><span class="glyphicon glyphicon-time"></span>
+				Posted on
+				<%= job.date_posted.strftime("%d.%m.%Y") %>
+				</p>
+			</div>
+			<div>
+				<p class="lead">Company: <%= User.find(job.company_id).name %></p>
+			</div>
+			<hr>
+		<% end %>
+	</div>
+
 </div>

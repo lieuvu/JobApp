@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
   layout "application"
   
   def index
-  	
+  	@jobs = Job.all
   end
   
+  def search
+  	render 'new'
+  end
 
 end

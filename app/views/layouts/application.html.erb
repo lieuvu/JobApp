@@ -4,8 +4,10 @@
 
 <head>
   <title>JobApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all'%>
-  <%= javascript_include_tag 'application' %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/application.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 
@@ -14,8 +16,15 @@
 	<%= render 'layouts/header'%>
 
 	<div class="container content">
-		<p>I am here in application</p>
-		<%= yield %>
+			<%= yield %>
 	</div>
+
+	
+	<div class="container content">
+		<%= debug(params) if Rails.env.development? %>
+	</div>
+	
+
+</body>
 
 </html>
