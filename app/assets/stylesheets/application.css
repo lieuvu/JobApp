@@ -1,0 +1,65 @@
+/* universal */
+
+body {
+	padding-top: 60px;
+}
+
+.content {
+	padding: 1em 0em;
+}
+
+.view-content {
+	float: right;
+	
+}
+
+.job-show {
+	background-color: #bcd9aa;
+}
+
+.form, .form-job-create{
+	background-color:  #48ccc8;
+}
+
+.form-job-create-element {
+	margin: 0 15px;
+}
+
+.btn {
+	margin: 1em 0em;
+}
+
+#job_description_txt {
+	height: 15em;
+}
+
+.jobs-show-date-posted {
+	float: right;
+}
+
+.sidebar-nav {
+	height: 100vh;
+	background: #000000;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar-nav li {
+	text-indent: 1em;
+	line-height: 4em;
+}
+
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+}
+
+.sidebar-nav li a:hover{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+	text-decoration: none;
+}

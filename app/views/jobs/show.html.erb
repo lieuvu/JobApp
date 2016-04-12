@@ -1,0 +1,21 @@
+
+
+<div class="container">
+		
+		<%= render "jobs/sidebar" %>
+		
+		<div class="view-content job-show col-sm-8">
+			<h2>Job Titile: <%= @job.job_title%></h2>
+			<p class="lead">Company: <%= User.find(@job.company_id).name %></p>
+			<hr>
+			<p><span class="glyphicon glyphicon-time"></span> Posted on
+				<%= @job.date_posted.strftime("%d.%m.%Y") %>
+			</p>
+			<hr>
+			<p><strong>Job Description:</strong></p>
+			<p><%= @job.job_des%></p>
+			<p><strong>Valid Till:</strong></p>
+			<p><%= @job.date_valid.strftime("%d.%m.%Y")%></p>
+		</div>
+	
+</div>
