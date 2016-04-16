@@ -1,12 +1,10 @@
+
 	<div class="container">
 
 		<!-- Include sidebar for user -->	
 		<%= render "users/sidebar" %>
 	
 		<% if !@jobs.empty? %>
-
-			<!-- Include the sorting bar-->
-			<%= render "application/toolbar" %>	
 			
 			<div class="jobs-list <%= jobsDisplayForLoggedIn %>" %>
 				<% @jobs.each do |job| %>
@@ -20,9 +18,22 @@
 					<div class="jobs-list-company-name">
 						<p><strong>Company: <%= User.find(job.company_id).username %></strong></p>
 					</div>
-					<hr>
+					<% if logged_in? %>
+						<div class="jobs-list-tool" >
+							<%= link_to "Edit", edit_user_job_path(job.company_id, job.id) , class: "btn btn-primary"%>
+							<%= button_to "Delete", user_job_path(job.company_id, job.id),method: :delete, data: {confirm: "Are you sure?"}, class: "jobs-list-tool-del-btn btn btn-primary " %>
+							<hr>
+						</div>
+					<% end %>
 				<% end #end @jobs.each %>
 			</div><!-- End jobs-list -->
+
+		<% else %>
+
+		<div class="view-content center jumbotron <%= jobsDisplayForLoggedIn %>">
+		<h1>Welcome to the Job Board</h1>
+		<h2>You have not posted any jobs yet</h2>
+		</div>
 
 		<% end #end if !@jobs.empty? %>
 

@@ -1,8 +1,8 @@
 
 <div class="container">
 
-	
-	<%= render "jobs/sidebar"  %>
+	<!-- Include sidebar for company -->
+	<%= render "users/sidebar"  %>
 
 	<div class="view-content form-job-create col-sm-8">
 		<%= form_for (@job), url: {action: "create"}, html: {class: "form-horizontal", id:"new_job"} do |f| %>
@@ -22,10 +22,6 @@
 				<div class="form-job-create-element">
 					<%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
 					<%= f.text_field :date_valid, class: "form-control", id: "date_valid", required: true%>
-				</div>
-				<div class="form-job-create-element">
-					<%= f.label :company_id, "Company Id:" %>
-					<%= f.text_field :company_id, class: "form-control", required: true%>
 				</div>
 				<div class="form-job-create-element">
 					<%= f.submit "Create The Job", class: "col-sm-12 btn btn-primary"%>

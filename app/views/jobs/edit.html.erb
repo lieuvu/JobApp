@@ -1,27 +1,43 @@
-<%= form_for (@job), url: {action: "create"}, class: "form-horizontal", id:"new-job" do |f| %>
-	<div class="form col-sm-offset-4 col-sm-4">
-		<h2>Edit A Job</h2>
-		<hr/>
+
+<div class="container">
+
 	
-		<div class="form-group">
-			<%= f.label :job_title, "Job Title:" %>
-			<%= f.text_field :job_title, class: "form-control", required: true%>
-		</div>
-		<div class="form-group">
-			<%= f.label :job_des, "Job Description:" %>
-			<%= f.text_area :job_des, class: "form-control", id: "job_description", required: true%>
-		</div>
-		<div class="form-group">
-			<%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
-			<%= f.text_field :date_valid, class: "form-control", id: "date_valid", required: true%>
-		</div>
-		<div class="form-group">
-			<%= f.label :company_id, "Company Id:" %>
-			<%= f.text_field :company_id, class: "form-control", required: true%>
-		</div>
-		<div class="form-group">
-			<%= f.submit "Create The Job", class: "col-sm-12 btn btn-primary"%>
-		</div>
+	<%= render "users/sidebar"  %>
+
+	<div class="view-content form-job-create col-sm-8">
+		<%= form_for (@job), url: {action: "update"}, html: {class: "form-horizontal"}, method: :patch do |f| %>
+				<div class="form-job-create-element">
+					<h2>Edit Job</h2>
+					<hr/>
+				</div>
+			
+				<div class="form-job-create-element">
+					<%= f.label :job_title, "Job Title:" %>
+					<%= f.text_field :job_title, class: "form-control", required: true%>
+				</div>
+				<div class="form-job-create-element">
+					<%= f.label :job_des, "Job Description:" %>
+					<%= f.text_area :job_des, class: "form-control", id: "job_description_txt", required: true%>
+				</div>
+				<div class="form-job-create-element">
+					<%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
+					<%= f.text_field :date_valid, class: "form-control", id: "date_valid", required: true %>
+				</div>
+				<div class="form-job-create-element">
+					<%= f.label :company_id, "Company Id:" %>
+					<%= f.text_field :company_id, class: "form-control", required: true%>
+				</div>
+				<div class="form-job-create-element">
+					<%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
+				</div>
+			
+		<% end %>
 	</div>
-<% end %>
+
+
 <script src="/assets/application.js" rel="javascripts"></script>
+
+</div>
+
+<%= console%>
+

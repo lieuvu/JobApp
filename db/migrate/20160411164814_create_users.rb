@@ -3,7 +3,8 @@ class CreateUsers < ActiveRecord::Migration
    	create_table :users do |t|
     	t.string :email
     	t.string :access_code
-    	t.string :name, :default => "NoName"
+    	t.string :username
+    	t.string :role, default: 'Company'
     end
   end
 end

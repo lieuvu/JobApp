@@ -2,11 +2,12 @@
 
 <div class="container">
 		
-		<%= render "jobs/sidebar" %>
+		<!-- Include sidebar for user -->
+		<%= render "users/sidebar" %>
 		
-		<div class="view-content job-show col-sm-8">
+		<div class="job-show <%= jobsDisplayForLoggedIn %>">
 			<h2>Job Titile: <%= @job.job_title%></h2>
-			<p class="lead">Company: <%= User.find(@job.company_id).name %></p>
+			<p class="lead">Company: <%= User.find(@job.company_id).username %></p>
 			<hr>
 			<p><span class="glyphicon glyphicon-time"></span> Posted on
 				<%= @job.date_posted.strftime("%d.%m.%Y") %>

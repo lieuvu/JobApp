@@ -1,0 +1,34 @@
+<%= render "application/error" %>
+
+<div class="container">
+	
+	<%= render "users/sidebar"  %>
+
+	<div class="view-content form-profile-create col-sm-8">
+		<%= form_for (current_user), url: {action: "update"}, html: {class: "form-horizontal"}, method: :patch do |f| %>
+				<div class="form-profile-create-element">
+					<h2>Edit Profile</h2>
+					<hr/>
+				</div>
+			
+				<div class="form-profile-create-element">
+					<%= f.label :username, "Company Name:" %>
+					<%= f.text_field :username, class: "form-control", required: true%>
+				</div>
+				<div class="form-profile-create-element">
+					<%= f.label :email, "Email:" %>
+					<%= f.text_field :email, class: "form-control", required: true%>
+				</div>
+				<div class="form-profile-create-element">
+					<%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
+				</div>
+			
+		<% end %>
+	</div>
+
+
+<script src="/assets/application.js" rel="javascripts"></script>
+
+</div>
+
+<%= console%>

@@ -1,21 +1,24 @@
-<%= form_for (:session), url: login_path, class: "form-horizontal" do |f| %>
-	<div class="form form col-sm-offset-3 col-sm-6">
-		<h2>Log in to JobApp</h2>
-		<hr/>
-		<div class="form-group">
-			<%= f.label :access_code, "Access Code", class: "control-label col-sm-6" %>
-			<div class="col-sm-12">
-				<%= f.text_field :access_code, class: "form-control" %>
-			</div>
+
+<%= render "application/error" %>
+
+<%= form_tag login_path, class: "form-horizontal" do %>
+	<div class="form-login col-sm-offset-2 col-sm-7">
+		<div class="form-login-element">
+			<h2>Log in to JobApp</h2>
+			<hr/>
+		</div>
+		<div class="form-login-element">
+			<%= label_tag(:access_code, "Access Code:") %>
+			<%= text_field_tag "access_code", nil, class:"form-control", required: true %>
 		</div>
 		
-		<div class="col-sm-10">
-			<%= f.submit "Log in", class: "btn btn-primary"%>
-			</div>
+		<div class="form-login-element">
+			<%= submit_tag "Log in", class: "btn btn-primary"%>
+		</div>
 		
 
-		<div class="col-sm-10">
-			<p>New user? <%= link_to "Sign up now", new_user_path %></p>
+		<div class="form-login-element">
+			<p>New user? <%= link_to "Sign up now", signup_path %></p>
 		</div>
 		
 	</div>

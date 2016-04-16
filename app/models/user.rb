@@ -1,5 +1,13 @@
 class User < ActiveRecord::Base
-	def current_user
-		@current_user = @current_user || User.find_by(id: session[:user_id])
-	end		
+	include SecureRandom
+	has_many :jobs, dependent: :destroy
+
+
+	before_save(:on => :create) do
+		begin
+			temp = SecureRandom.uuid()
+		end while User.where(access_code: temp).present?
+		self.access_code = temp
+	end
+	
 end

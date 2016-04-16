@@ -1,0 +1,12 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "access_code" varchar, "name" varchar DEFAULT 'NoName');
+INSERT INTO "users" VALUES(1,'admin@admin.com','12345','NoName');
+INSERT INTO "users" VALUES(2,'test1@test.com','12345','Test1');
+INSERT INTO "users" VALUES(3,'test2@test.com','abcde','Test2');
+INSERT INTO "users" VALUES(4,'test3@test.com','12345','Test3');
+INSERT INTO "users" VALUES(5,'abc@abc.com','12345','ABC Oy');
+INSERT INTO "users" VALUES(6,'kone@kone.fi','12345','Kone Oy');
+INSERT INTO "users" VALUES(7,'elisa@elisa.fi','12345','Elisa Oy');
+INSERT INTO "users" VALUES(8,'foodie@foodie.fi','12345','Foodie Oy');
+COMMIT;

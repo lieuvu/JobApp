@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  root 'application#index'
-  post 'search' => 'application#search'
+  root 'jobs#index'
+  get 'about' => 'pages#about'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  #resources :jobs
-  resources :users do
+  resources :users, only: [:create, :edit ,:update] do
     resources :jobs
   end
+  resources :jobs, only: [:index, :show]
+  get '/users/:user_id/profile' => 'users#profile', as: 'profile'
+  get 'users/show' =>'users#show', as: 'show_access_code'
+  get 'signup' => 'users#new', as: 'signup'
+  #get '/*other' => redirect('/')
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

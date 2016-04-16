@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 20160412091844) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "access_code"
-    t.string "name",        default: "NoName"
+    t.string "username"
+    t.string "role",        default: "Company"
   end
 
 end
