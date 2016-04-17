@@ -1,0 +1,187 @@
+/*
+
+
+*/
+
+/* universal */
+
+
+body {
+	padding-top: 60px;
+}
+
+.content {
+	padding: 1em 0em;
+}
+
+.view-content {
+	float: right;
+	
+}
+
+.jobs-list-title {
+	padding-top: 1em;
+	margin-left: 1em;
+}
+
+.jobs-list-title a, .profile-display-name {
+	font-size: 22px;
+	font-weight: 900;
+	color: #000000;
+}
+
+.profile-display p {
+	margin: 1em 1em;
+}
+
+.profile-display-tool {
+	float: right;
+	margin: 1em 1em;
+}
+
+.jobs-list-date-posted {
+	float: right;
+	margin-right: 1em;
+}
+
+.jobs-list-company-name {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+.jobs-list-tool {
+	text-align: right;
+}
+
+.jobs-list-tool a, .button_to{
+	display: inline-block;
+	margin: 0;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.jobs-list-tool-del-btn {
+	margin: 0 !important;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: #ff4000;
+	border-color: #ff4000;
+}
+
+.jobs-list-tool-del-btn:hover {
+	background-color: #ff0000;
+	border-color: #ff0000;
+}
+
+.jobs-list hr {
+	margin: 0.5em 1em;
+}
+
+.jobs-list, .job-show, .profile-display {
+	background-color: #e6eaea;
+}
+
+.job-show {
+	padding: 1em 1.5em;
+}
+
+.form-signup-element, .form-login-element, .form-edit-job-element,
+.form-create-job-element, .form-edit-user-element {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 1em;
+	margin-right: 1em;
+	padding: 0;
+}
+
+.logout-element input {
+	border: 0;
+}
+
+
+#job_description_txt {
+	height: 15em;
+}
+
+.jobs-sort {
+	text-align: right;
+}
+
+.jobs-sort span, ul{
+	display: inline-block;
+}
+
+.jobs-sort ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+.jobs-sort .btn {
+	margin: 0;
+}
+
+.sidebar-nav {
+	height: 100vh;
+	background: #cccccc;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.sidebar-nav li {
+	text-indent: 1em;
+	line-height: 3em;
+}
+
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+	color: #000000;
+	font-weight: 700;
+}
+
+.sidebar-nav li a:hover{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+	text-decoration: none;
+}
+
+.center{
+	text-align: center;
+	color: #2a2720;
+}
+
+@media (min-width: 1200px) {
+	.container {width: 777px;}
+}
+
+hr {
+	border-color: #48ccc8;
+}
+
+.img-author {
+	margin-top: 27px;
+	padding-right: 30px! important;
+	background: url("/assets/author.jpg") no-repeat;
+}
+
+.error {
+	padding-left: 3em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	margin: 1em 4em;
+	font-size: 18px;
+	font-weight: 900;
+	color:  #ffffff;
+	background-color: #902;
+}
+
+.error p {
+	margin: 0;
+}
