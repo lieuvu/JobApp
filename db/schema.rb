@@ -14,12 +14,14 @@
 ActiveRecord::Schema.define(version: 20160412091844) do
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "company_id",  null: false
+    t.integer "user_id"
     t.string  "job_title",   null: false
     t.text    "job_des"
     t.date    "date_posted", null: false
     t.date    "date_valid",  null: false
   end
+
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "email"

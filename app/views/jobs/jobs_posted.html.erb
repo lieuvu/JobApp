@@ -16,12 +16,12 @@
 						</p>				
 					</div>
 					<div class="jobs-list-company-name">
-						<p><strong>Company: <%= User.find(job.company_id).username %></strong></p>
+						<p><strong>Company: <%= User.find(job.user_id).username %></strong></p>
 					</div>
 					<% if logged_in? %>
 						<div class="jobs-list-tool" >
-							<%= link_to "Edit", edit_user_job_path(job.company_id, job.id) , class: "btn btn-primary"%>
-							<%= button_to "Delete", user_job_path(job.company_id, job.id),method: :delete, data: {confirm: "Are you sure?"}, class: "jobs-list-tool-del-btn btn btn-primary " %>
+							<%= link_to "Edit", edit_user_job_path(job.user_id, job.id) , class: "btn btn-primary"%>
+							<%= button_to "Delete", user_job_path(job.user_id, job.id),method: :delete, data: {confirm: "Are you sure?"}, class: "jobs-list-tool-del-btn btn btn-primary " %>
 							<hr>
 						</div>
 					<% end %>

@@ -7,8 +7,8 @@ class JobsController < ApplicationController
 	#GET /jobs
 	#GEt /jobs.json
 	def index
-		if logged_in? && params[:user_id]			
-			@jobs = Job.where(company_id: current_user.id)
+		if logged_in? && params[:user_id]		
+			@jobs = Job.where(user_id: current_user.id)
 			render 'jobs/jobs_posted'
 		elsif params[:sort_by].nil?
 			@jobs = Job.all
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
 				
 		respond_to do |format|
 			if @job.save
-				format.html {redirect_to user_job_path(@job.company_id, @job.id), notice: "Job was successfully created"}
+				format.html {redirect_to user_job_path(@job.user_id, @job.id), notice: "Job was successfully created"}
 				format.json {render action: 'show', status: :created, location: @job}
 			else
 				format.html {render action: 'new'}
@@ -90,8 +90,8 @@ class JobsController < ApplicationController
 		end
 
 		def test_params
-			params[:job][:company_id] = params[:user_id]
-			params.require(:job).permit(:company_id, :job_title, :job_des, :date_valid)
+			params[:job][:user_id] = params[:user_id]
+			params.require(:job).permit(:user_id, :job_title, :job_des, :date_valid)
 		end
 
 		def check_logged_in?

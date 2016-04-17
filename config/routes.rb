@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
   get '/users/:user_id/profile' => 'users#profile', as: 'profile'
   resources :users, only: [:create, :edit ,:update] do
-    resources :jobs, only: [:new, :create, :edit, :update, :destroy]
+    resources :jobs, only: [:index, :new, :create, :edit, :update, :destroy]
   end
   resources :jobs, only: [:show]
   get '/*other' => redirect('/')

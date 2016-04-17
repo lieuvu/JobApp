@@ -18,7 +18,7 @@
 						</p>				
 					</div>
 					<div class="jobs-list-company-name">
-						<p><strong>Company: <%= User.find(job.company_id).username %></strong></p>
+						<p><strong>Company: <%= User.find(job.user_id).username %></strong></p>
 					</div>
 					<hr>
 				<% end #end @jobs.each %>

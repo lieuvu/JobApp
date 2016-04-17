@@ -7,7 +7,7 @@
 		
 		<div class="job-show <%= classDisplayForLoggedIn? %>">
 			<h2>Job Titile: <%= @job.job_title%></h2>
-			<p class="lead">Company: <%= User.find(@job.company_id).username %></p>
+			<p class="lead">Company: <%= User.find(@job.user_id).username %></p>
 			<hr>
 			<p><span class="glyphicon glyphicon-time"></span> Posted on
 				<%= @job.date_posted.strftime("%d.%m.%Y") %>
