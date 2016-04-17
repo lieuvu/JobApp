@@ -5,7 +5,7 @@
 		<!-- Include sidebar for user -->
 		<%= render "users/sidebar" %>
 		
-		<div class="job-show <%= jobsDisplayForLoggedIn %>">
+		<div class="job-show <%= classDisplayForLoggedIn? %>">
 			<h2>Job Titile: <%= @job.job_title%></h2>
 			<p class="lead">Company: <%= User.find(@job.company_id).username %></p>
 			<hr>

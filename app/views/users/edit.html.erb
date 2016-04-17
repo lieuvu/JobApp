@@ -4,22 +4,22 @@
 	
 	<%= render "users/sidebar"  %>
 
-	<div class="view-content form-profile-create col-sm-8">
-		<%= form_for (current_user), url: {action: "update"}, html: {class: "form-horizontal"}, method: :patch do |f| %>
-				<div class="form-profile-create-element">
+	<div class="view-content col-sm-8">
+		<%= form_for (current_user), url: {action: "update"}, html: {class: "form-edit-user", id: "edit_user"}, method: :patch do |f| %>
+				<div class="form-edit-user-element">
 					<h2>Edit Profile</h2>
 					<hr/>
 				</div>
 			
-				<div class="form-profile-create-element">
+				<div class="form-edit-user-element">
 					<%= f.label :username, "Company Name:" %>
 					<%= f.text_field :username, class: "form-control", required: true%>
 				</div>
-				<div class="form-profile-create-element">
+				<div class="form-edit-user-element">
 					<%= f.label :email, "Email:" %>
-					<%= f.text_field :email, class: "form-control", required: true%>
+					<%= f.text_field :email, class: "form-control", id: "edit_user_email", required: true%>
 				</div>
-				<div class="form-profile-create-element">
+				<div class="form-edit-user-element">
 					<%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
 				</div>
 			
@@ -30,5 +30,3 @@
 <script src="/assets/application.js" rel="javascripts"></script>
 
 </div>
-
-<%= console%>

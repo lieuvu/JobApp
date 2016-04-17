@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
     include SessionsHelper
+    before_action :check_logged_in?, only: [:profile, :edit, :update]
   
   def index
   	
   end
-
 
   # GET /signup
   def new
@@ -13,8 +13,9 @@ class UsersController < ApplicationController
 
   #POST /users
   def create
-  	if !User.where(email: params[:user][:email]).present?
+    if !User.where(email: params[:user][:email]).present?
       @user = User.new(test_params)
+      flash[:error] = nil
 
   		respond_to do |format|
 				if @user.save
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 				end
 			end
 		else
+      flash[:error] = "User already existed"
 			@user = User.find_by_email(params[:user][:email])
 			render "show_access_code"
 		end
@@ -38,11 +40,7 @@ class UsersController < ApplicationController
 
   # GET users/:user_id/edit
   def edit
-    if !logged_in?
-      redirect_to root_path
-    else
-      render 'edit'
-    end
+    render 'edit'
   end
 
   # PATCH/PUT users/:user_id
@@ -71,5 +69,11 @@ class UsersController < ApplicationController
   		params.require(:user).permit(:email, :username)
   	end
 
+    def check_logged_in?
+      if !logged_in?
+        redirect_to root_path
+      end
+
+    end
 
 end

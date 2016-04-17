@@ -8,7 +8,7 @@
 			<!-- Include the sorting bar-->
 			<%= render "application/toolbar" %>	
 			
-			<div class="jobs-list <%= jobsDisplayForLoggedIn %>" %>
+			<div class="jobs-list <%= classDisplayForLoggedIn? %>" %>
 				<% @jobs.each do |job| %>
 					<div class="jobs-list-title">
 						<%= link_to job.job_title, job %>
@@ -24,9 +24,13 @@
 				<% end #end @jobs.each %>
 			</div><!-- End jobs-list -->
 
+		<% else %>
+
+			<div class="view-content center jumbotron <%= classDisplayForLoggedIn? %>">
+			<h1>Welcome to the Job Board</h1>
+			<h2>There are no jobs available yet</h2>
+			</div>
+
 		<% end #end if !@jobs.empty? %>
 
 	</div><!-- End container-->
-
-
-<%= console%>

@@ -82,11 +82,11 @@ body {
 }
 
 .job-show {
-	padding: 0 1.5em;
+	padding: 1em 1.5em;
 }
 
-.form-signup-element, .form-login-element,
-.form-job-create-element, .form-profile-create-element {
+.form-signup-element, .form-login-element, .form-edit-job-element,
+.form-create-job-element, .form-edit-user-element {
 	padding-top: 7px;
 	padding-bottom: 7px;
 	margin-top: 15px;
@@ -168,4 +168,19 @@ hr {
 	margin-top: 27px;
 	padding-right: 30px! important;
 	background: url("/assets/author.jpg") no-repeat;
+}
+
+.error {
+	padding-left: 3em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	margin: 1em 4em;
+	font-size: 18px;
+	font-weight: 900;
+	color:  #ffffff;
+	background-color: #902;
+}
+
+.error p {
+	margin: 0;
 }

@@ -2,17 +2,18 @@ class SessionsController < ApplicationController
   include SessionsHelper
   
   def new
-  	
+  	flash[:error] = nil
   end
 
   def create
     user = User.find_by_access_code(params[:access_code])
-  	if user      
+  	if user
+      flash[:error] = nil   
   		session[:id] = user.id
   		redirect_to root_path
   	else
   		flash[:error] = "Invalid access_code"
-  		render 'new'
+  		render 'sessions/new'
   	end
   end
 

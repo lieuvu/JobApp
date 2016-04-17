@@ -6,7 +6,7 @@
 	
 		<% if !@jobs.empty? %>
 			
-			<div class="jobs-list <%= jobsDisplayForLoggedIn %>" %>
+			<div class="jobs-list <%= classDisplayForLoggedIn? %>" %>
 				<% @jobs.each do |job| %>
 					<div class="jobs-list-title">
 						<%= link_to job.job_title, job %>
@@ -30,14 +30,11 @@
 
 		<% else %>
 
-		<div class="view-content center jumbotron <%= jobsDisplayForLoggedIn %>">
-		<h1>Welcome to the Job Board</h1>
-		<h2>You have not posted any jobs yet</h2>
-		</div>
+			<div class="view-content center jumbotron <%= classDisplayForLoggedIn? %>">
+			<h1>Welcome to the Job Board</h1>
+			<h2>You have not posted any jobs yet</h2>
+			</div>
 
 		<% end #end if !@jobs.empty? %>
 
 	</div><!-- End container-->
-
-
-<%= console%>

@@ -12,7 +12,7 @@ module SessionsHelper
 		end
 	end	
 
-	def jobsDisplayForLoggedIn
+	def classDisplayForLoggedIn?
 		if logged_in?
 			return "view-content col-sm-8"
 		else

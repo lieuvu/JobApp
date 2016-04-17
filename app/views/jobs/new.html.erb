@@ -4,26 +4,25 @@
 	<!-- Include sidebar for company -->
 	<%= render "users/sidebar"  %>
 
-	<div class="view-content form-job-create col-sm-8">
-		<%= form_for (@job), url: {action: "create"}, html: {class: "form-horizontal", id:"new_job"} do |f| %>
-				<div class="form-job-create-element">
+	<div class="view-content col-sm-8">
+		<%= form_for (@job), url: {action: "create"}, html: {class: "form-create-job", id:"new_job"} do |f| %>
+				<div class="form-create-job-element">
 					<h2>Create A New Job</h2>
 					<hr/>
 				</div>
-			
-				<div class="form-job-create-element">
+				<div class="form-create-job-element">
 					<%= f.label :job_title, "Job Title:" %>
 					<%= f.text_field :job_title, class: "form-control", required: true%>
 				</div>
-				<div class="form-job-create-element">
+				<div class="form-create-job-element">
 					<%= f.label :job_des, "Job Description:" %>
 					<%= f.text_area :job_des, class: "form-control", id: "job_description_txt", required: true%>
 				</div>
-				<div class="form-job-create-element">
+				<div class="form-create-job-element">
 					<%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
-					<%= f.text_field :date_valid, class: "form-control", id: "date_valid", required: true%>
+					<%= f.text_field :date_valid, class: "form-control", id: "new_job_date", required: true%>
 				</div>
-				<div class="form-job-create-element">
+				<div class="form-create-job-element">
 					<%= f.submit "Create The Job", class: "col-sm-12 btn btn-primary"%>
 				</div>
 			
