@@ -18,24 +18,25 @@ body {
 	
 }
 
+hr {
+	border-color: #48ccc8;
+}
+
+@media (min-width: 1200px) {
+	.container {width: 777px;}
+}
+
+
+/*-- jobs list views */
 .jobs-list-title {
 	padding-top: 1em;
 	margin-left: 1em;
 }
 
-.jobs-list-title a, .profile-display-name {
+.jobs-list-title a {
 	font-size: 22px;
 	font-weight: 900;
 	color: #000000;
-}
-
-.profile-display p {
-	margin: 1em 1em;
-}
-
-.profile-display-tool {
-	float: right;
-	margin: 1em 1em;
 }
 
 .jobs-list-date-posted {
@@ -49,9 +50,11 @@ body {
 	margin-left: 1em;
 }
 
-.jobs-list-tool {
-	text-align: right;
+.jobs-list hr {
+	margin: 0.5em 1em;
 }
+
+/*-- job_posted element--*/
 
 .jobs-list-tool a, .button_to{
 	display: inline-block;
@@ -73,17 +76,34 @@ body {
 	border-color: #ff0000;
 }
 
-.jobs-list hr {
-	margin: 0.5em 1em;
+
+/*-- profile display --*/
+
+.profile-display p {
+	margin: 1em 1em;
 }
+
+.profile-display-tool {
+	float: right;
+	margin: 1em 1em;
+}
+
+
+/*-- background color for jobs list view
+	 job show and profile display --*/
 
 .jobs-list, .job-show, .profile-display {
 	background-color: #e6eaea;
 }
 
+/* styles for job show */
+
 .job-show {
 	padding: 1em 1.5em;
 }
+
+
+/* styles for forms */
 
 .form-signup-element, .form-login-element, .form-edit-job-element,
 .form-create-job-element, .form-edit-user-element {
@@ -96,6 +116,8 @@ body {
 	padding: 0;
 }
 
+/*-- style for logout button --*/
+
 .logout-element input {
 	border: 0;
 }
@@ -104,6 +126,9 @@ body {
 #job_description_txt {
 	height: 15em;
 }
+
+
+/*-- styles for sorting bar --*/
 
 .jobs-sort {
 	text-align: right;
@@ -121,6 +146,9 @@ body {
 .jobs-sort .btn {
 	margin: 0;
 }
+
+
+/*-- styles for side bar --*/
 
 .sidebar-nav {
 	height: 100vh;
@@ -151,24 +179,27 @@ body {
 	text-decoration: none;
 }
 
+/*-- style for element when no jobs availble--*/
+
 .center{
 	text-align: center;
 	color: #2a2720;
 }
 
-@media (min-width: 1200px) {
-	.container {width: 777px;}
-}
 
-hr {
-	border-color: #48ccc8;
-}
+
+/* styles for image in about page*/
 
 .img-author {
 	margin-top: 27px;
 	padding-right: 30px! important;
-	background: url("/assets/author.jpg") no-repeat;
 }
+
+.img-author img {
+	max-width: 100%;
+}
+
+/*-- styles for error element--*/
 
 .error {
 	padding-left: 3em;
