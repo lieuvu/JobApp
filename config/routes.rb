@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :jobs, only: [:index, :new, :create, :edit, :update, :destroy]
   end
   resources :jobs, only: [:show]
-  get '/*other' => redirect('/')
+  #get '/*other' => redirect('/')
   
 end
