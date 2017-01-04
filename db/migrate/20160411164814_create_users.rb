@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :email
     	t.string :access_code
     	t.string :username
-    	t.string :role, default: 'Company'
+    	t.string :role, default: "Company"
     end
   end
 end
