@@ -1,27 +1,31 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+# PostgreSQL database default setting
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  username: lieu
   pool: 5
   timeout: 5000
 
+# Development database
+#
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: job_app_dev
 
+# Test database
+#
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+#
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: job_app_test
 
+# Production database
+#
 production:
-  adapter: postgresql
-  endcoding: unicode
-  database: db/development
-  pool: 5
+  <<: *default
+  database: job_app_prod

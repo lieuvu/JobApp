@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new', as: 'signup'
   get '/users/:user_id/profile' => 'users#profile', as: 'profile'
   resources :users, only: [:create, :edit ,:update] do
