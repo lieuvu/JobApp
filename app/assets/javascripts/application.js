@@ -1,5 +1,12 @@
+//= require jquery3
+//= require jquery_ujs
+//= require popper
+//= require bootstrap
 
-$(document).ready( function() {
+/** 
+ * Load functions after the document is ready.
+ */
+$(function() {
 
 	//Validate date in new_job form
 	validateDateInForm("#new_job");
@@ -16,20 +23,18 @@ $(document).ready( function() {
 });
 
 function validateDateInForm(form_id) {
-	$(form_id).on("submit", function(e) {
-		var error_element = '<div class="error">' +
-								'<p> </p>' +
-							'</div>';
+	$(form_id).off().on("submit", function(e) {
+		var error_element = '<div class="error"><p> </p></div>';
 		var dateInputId = form_id + "_date";
-		var date_valid = $(dateInputId).val();
+		var date = $(dateInputId).val();
 		var regex = /\d{2}.\d{2}.\d{4}/;
-		if (regex.test(date_valid) == false || dateValidation(date_valid) == false) {
+    
+    if (regex.test(date) == false || dateValidation(date) == false) {
 			clearErrorMsg();
 			$(this).before(error_element);
 			dispplayErrorMsg("Invalid Date Format or Value")
 			return false;
-		}
-		else {
+		} else {
 			clearErrorMsg();
 			return true;
 		}
@@ -37,7 +42,7 @@ function validateDateInForm(form_id) {
 }
 
 
-//Date validation
+// Date validation
 function dateValidation(date) {
 	var temp_arr = date.split('.');
 	var day = parseInt(temp_arr[0]);
@@ -47,16 +52,17 @@ function dateValidation(date) {
 	var MAX_MONTH = 12;
 	var MIN_YEAR = 2015;
 
-	if (day > 31 || month > 12 || year < MIN_YEAR)
+	if (day > MAX_DAY || month > MAX_MONTH || year < MIN_YEAR) {
 		return false;
-	else
+	} else {
 		return true;
+	}
 }
 
 
 // Function validate email
 function validateEmailInForm(form_id) {
-	$(form_id).on("submit", function(e) {
+	$(form_id).off().on("submit", function(e) {
 		var error_element = '<div class="error">' +
 								'<p> </p>' +
 							'</div>';
@@ -70,14 +76,12 @@ function validateEmailInForm(form_id) {
 			$(this).before(error_element);
 			dispplayErrorMsg("Invalid Email Format")
 			return false;
-		}
-		else {
+		} else {
 			clearErrorMsg();
 			return true;
 		}
 	});
 }
-
 
 
 //Display error message
@@ -92,5 +96,4 @@ function clearErrorMsg() {
 	if ($error.length) {
 		$error.remove();
 	}
-
 }
