@@ -1,48 +1,67 @@
 source 'https://rubygems.org'
 
-ruby "2.3.0"
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use boostrap
-gem 'bootstrap-sass', '~>3.3.6'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# Use jquery as the JavaScript library
-gem 'jquery-rails', '~>2.0.0'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+# Ruby on Rails is a full-stack web framework optimized for programmer 
+# happiness and sustainable productivity. It encourages beautiful code by 
+# favoring convention over configuration.
+#
+# Homepage: https://rubyonrails.org/
+# Source: https://github.com/rails/rails
+#
+gem 'rails', '5.2.2'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# The most popular HTML, CSS, and JavaScript framework for developing 
+# responsive, mobile first projects on the web. http://getbootstrap.com
+#
+# Source: https://github.com/twbs/bootstrap-rubygem
+#
+gem 'bootstrap', '4.3.1'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Integrate SassC-Ruby into Rails.
+#
+# Source: https://github.com/sass/sassc-rails
+#
+gem 'sassc-rails', '2.1.0'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Uglifier minifies JavaScript files by wrapping UglifyJS to be accessible in
+# Ruby.
+#
+# Source: https://github.com/lautis/uglifier
+#
+gem 'uglifier', '4.1.20'
+
+# This gem provides jQuery and the jQuery-ujs driver for your
+# Rails 4+ application.
+#
+# Source: https://github.com/rails/jquery-rails
+#
+gem 'jquery-rails', '4.3.3'
+
+# Pg is the Ruby interface to the PostgreSQL RDBMS(http://www.postgresql.org/).
+# It works with PostgreSQL 9.2 and later.
+#
+# Source: https://bitbucket.org/ged/ruby-pg/wiki/Home
+#
+gem 'pg', '1.1.4'
+
+# --------------------------------
+# Development and test environment
+# -------------------------------- 
 
 group :development, :test do
-	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3', '~>1.3.5'
-	# Use sqlite3 as the database for Active Record
-	gem 'rspec-rails', '~>3.4.2'
-	# Access an IRB console on exception pages or by using <%= console %> in views
-	gem 'web-console', git: 'https://github.com/rails/web-console.git'
- 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  	#gem 'spring'
-end
+	
+	# A debugging tool for your Ruby on Rails applications.
+	#
+	# Source: https://github.com/rails/web-console
+	#
+	gem 'web-console', '3.7.0'
 
-group :production do
-	gem 'pg', '0.18.4'
-	gem 'rails_12factor', '0.0.3'
+	# Byebug is a Ruby debugger. It's implemented using the TracePoint C API 
+	# for execution control and the Debug Inspector C API for call stack 
+	# navigation. The core component provides support that front-ends can build 
+	# on. It provides breakpoint handling and bindings for stack frames among 
+	# other things and it comes with an easy to use command line interface.
+	#
+	# Source: https://github.com/deivid-rodriguez/byebug
+	# 
+	gem 'byebug', '11.0.0'
 end
