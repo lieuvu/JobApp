@@ -1,36 +1,15 @@
-	<div class="container">
-
-		<!-- Include sidebar for user -->	
-		<%= render "users/sidebar" %>
-	
-		<% if !@jobs.empty? %>
-
-			<!-- Include the sorting bar-->
-			<%= render "application/toolbar" %>	
-			
-			<div class="jobs-list <%= classDisplayForLoggedIn? %>" %>
-				<% @jobs.each do |job| %>
-					<div class="jobs-list-title">
-						<%= link_to job.job_title, job %>
-						<p class="jobs-list-date-posted"><span class="glyphicon glyphicon-time"></span>
-						Posted on
-						<%= job.date_posted.strftime("%d.%m.%Y") %>
-						</p>				
-					</div>
-					<div class="jobs-list-company-name">
-						<p><strong>Company: <%= User.find(job.user_id).username %></strong></p>
-					</div>
-					<hr>
-				<% end #end @jobs.each %>
-			</div><!-- End jobs-list -->
-
-		<% else %>
-
-			<div class="view-content center jumbotron <%= classDisplayForLoggedIn? %>">
-			<h1>Welcome to the Job Board</h1>
-			<h2>There are no jobs available yet</h2>
-			</div>
-
-		<% end #end if !@jobs.empty? %>
-
-	</div><!-- End container-->
+<%
+	login_class = current_user.present? ? "login" : ""
+%>
+<div class="home-page <%= login_class %>">
+	<% if current_user then %>
+		<div class="d-flex flex-row">
+			<%= render "users/sidebar" %>
+			<%= render	partial: "job_list",
+									locals: { jobs: @jobs, show_sorting_bar: true } %>
+		</div>
+	<% else %>
+		<%= render 	partial: "job_list",
+								locals: { jobs: @job, show_sorting_bar: true } %>
+	<% end %> <%# end - if current_user %>
+</div>

@@ -1,34 +1,14 @@
-
-<div class="container">
-
-	
-	<%= render "users/sidebar"  %>
-
-	<div class="view-content col-sm-8">
-		<%= form_for (@job), url: {action: "update"}, html: {class: "form-edit-job", id: "edit_job"}, method: :patch do |f| %>
-				<div class="form-edit-job-element">
-					<h2>Edit Job</h2>
-					<hr/>
-				</div>
-			
-				<div class="form-edit-job-element">
-					<%= f.label :job_title, "Job Title:" %>
-					<%= f.text_field :job_title, class: "form-control", required: true%>
-				</div>
-				<div class="form-edit-job-element">
-					<%= f.label :job_des, "Job Description:" %>
-					<%= f.text_area :job_des, class: "form-control", id: "job_description_txt", required: true%>
-				</div>
-				<div class="form-edit-job-element">
-					<%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
-					<%= f.text_field :date_valid, class: "form-control", id: "edit_job_date", required: true %>
-				</div>
-				<div class="form-edit-job-element">
-					<%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
-				</div>
-			
-		<% end %>
+<div class="job-edit-page">
+	<div class="d-flex flex-row">
+		<%= render partial: "users/sidebar"  %>
+		<%= 
+			render 	partial: "job_form",
+							locals: {
+								title: "Edit Job",
+								action: :update,
+								job: @job 
+							} 
+		%>
 	</div>
-
 </div>
 

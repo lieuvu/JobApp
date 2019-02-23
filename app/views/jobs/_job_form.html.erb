@@ -1,0 +1,31 @@
+<%
+  byebug
+  title = local_assigns[:title]
+  action = local_assigns[:action]
+  job = local_assigns[:job]
+  id = nil if action == :create
+  id = job.id if action == :update
+%>
+
+<div class="job-form">
+<h2><%= title %></h2>
+<hr/>
+<%= form_for job, url: { action: action, id: job.id },
+        html: { class: "form-horizontal" } do |f| %>
+    <div class="form-group">
+      <%= f.label :job_title, "Job Title:" %>
+      <%= f.text_field :job_title, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :job_des, "Job Description:" %>
+      <%= f.text_area :job_des, class: "form-control", id: "job_description_txt", required: true%>
+    </div>
+    <div class="form-group">
+      <%= f.label :date_valid, "Date Valid (dd.mm.yyyy):" %>
+      <%= f.text_field :date_valid, class: "form-control", id: "new_job_date", required: true%>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
+    </div>
+  <% end %>
+</div>

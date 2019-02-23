@@ -1,0 +1,30 @@
+<%
+  jobs = local_assigns[:jobs]
+  show_sorting_bar = local_assigns[:show_sorting_bar]
+  editable = local_assigns[:editable]
+%>
+<div class="d-flex flex-column">
+<% if jobs.present? then %>
+  
+  <% if show_sorting_bar then %>
+    <%= render partial: "application/toolbar" %>	
+  <% end %>
+
+  <!-- Jobs list -->
+  <div class="jobs-list">
+    <% jobs.each do |job| %>
+      <%= render  partial: "jobs/job_item",
+                  locals: { job: job, editable: editable } %>
+    <% end %> <%# end jobs.each %>
+  </div>
+
+<% else %>
+
+  <div class="view-content center jumbotron">
+  <h1>Welcome to the Job Board</h1>
+  <h2>There are no jobs available yet</h2>
+  </div>
+
+<% end %> <%# end - if jobs.present? %>
+
+</div>

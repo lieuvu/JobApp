@@ -1,16 +1,13 @@
+<div class="job-show-page">
+	<div class="d-flex flex-row">
+		<%= render partial: "users/sidebar" %>
 
-
-<div class="container">
-		
-		<!-- Include sidebar for user -->
-		<%= render "users/sidebar" %>
-		
-		<div class="job-show <%= classDisplayForLoggedIn? %>">
+		<div class="job-show-detail-item">
 			<h2>Job Titile: <%= @job.job_title%></h2>
 			<p class="lead">Company: <%= User.find(@job.user_id).username %></p>
 			<hr>
 			<p><span class="glyphicon glyphicon-time"></span> Posted on
-				<%= @job.date_posted.strftime("%d.%m.%Y") %>
+			<%= @job.date_posted.strftime("%d.%m.%Y") %>
 			</p>
 			<hr>
 			<p><strong>Job Description:</strong></p>
@@ -18,5 +15,5 @@
 			<p><strong>Valid Till:</strong></p>
 			<p><%= @job.date_valid.strftime("%d.%m.%Y")%></p>
 		</div>
-	
+	</div>
 </div>
