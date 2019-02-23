@@ -1,25 +1,19 @@
-<%= render 'application/error'%>
+<div class="login-page">
 
-<%= form_tag login_path, class: "form-horizontal" do %>
-	<div class="form-login col-sm-offset-2 col-sm-7">
-		<div class="form-login-element">
-			<h2>Log in to JobApp</h2>
-			<hr/>
-		</div>
-		<div class="form-login-element">
+	<%= render 'application/error'%>
+
+	<h2 class="text-center">Log in to JobApp</h2>
+
+	<%= form_tag login_path, class: "form-horizontal" do %>
+		<div class="form-group">
 			<%= label_tag(:access_code, "Access Code:") %>
 			<%= text_field_tag "access_code", nil, class:"form-control", required: true %>
 		</div>
-		
-		<div class="form-login-element">
+		<div class="form-group">
 			<%= submit_tag "Log in", class: "btn btn-primary"%>
 		</div>
-		
-
-		<div class="form-login-element">
+		<div class="form-group">
 			<p>New user? <%= link_to "Sign up now", signup_path %></p>
 		</div>
-		
-	</div>
-	
-<% end %>
+	<% end %> <%# end - form tag %>
+</div>

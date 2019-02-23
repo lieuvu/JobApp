@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_access_code(params[:access_code])
-  	if user
+  	if user then
       flash[:error] = nil   
   		session[:id] = user.id
   		redirect_to root_path
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if logged_in?
+    if current_user then
       cookies.delete(:id)
       session.delete(:id)
     end
