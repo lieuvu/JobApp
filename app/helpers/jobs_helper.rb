@@ -1,3 +1,0 @@
-module JobsHelper
-	
-end
