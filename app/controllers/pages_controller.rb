@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
 
-	def home
-		return @jobs = Job.all
-	end
+	# Layout
+
+	layout 'main_non_login'
+
+	# def home
+	# 	@jobs = Job.all
+	# end
 
 	def about
 	end
