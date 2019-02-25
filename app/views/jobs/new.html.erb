@@ -1,15 +1,11 @@
 <div class="job-new-page">
-	<div class="d-flex flex-row">
-		<%= render partial: "users/sidebar"  %>
-		<%= 
-			render 	partial: "job_form",
-							locals: {
-								title: "Create A New Job", 
-								action: :create,
-								job: @job 
-							} 
-		%>
-	</div>
-
+	<%= 
+		render 	partial: "job_form",
+						locals: {
+							title: "Create A New Job", 
+							action: :create,
+							job: @job 
+						} 
+	%>
 </div>
 

@@ -1,13 +1,10 @@
 <div class="jobs-login-page">
-	<div class="d-flex flex-row">
-		<%= render partial: "users/sidebar" %>
-		<%= 
-			render	partial: "job_list",
-							locals: { 
-								jobs: @jobs,
-								show_sorting_bar: false,
-								editable: true 
-							} 
-		%>
-	</div>
+	<%= 
+		render	partial: "job_list",
+						locals: { 
+							jobs: @jobs,
+							show_sorting_bar: false,
+							editable: true 
+						} 
+	%>
 </div>

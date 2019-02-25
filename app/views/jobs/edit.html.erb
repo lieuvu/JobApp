@@ -1,14 +1,11 @@
 <div class="job-edit-page">
-	<div class="d-flex flex-row">
-		<%= render partial: "users/sidebar"  %>
-		<%= 
-			render 	partial: "job_form",
-							locals: {
-								title: "Edit Job",
-								action: :update,
-								job: @job 
-							} 
-		%>
-	</div>
+	<%= 
+		render 	partial: "job_form",
+						locals: {
+							title: "Edit Job",
+							action: :update,
+							job: @job 
+						} 
+	%>
 </div>
 

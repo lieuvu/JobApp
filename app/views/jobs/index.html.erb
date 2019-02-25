@@ -1,15 +1,11 @@
-<%
-	login_class = current_user.present? ? "login" : ""
-%>
-<div class="home-page <%= login_class %>">
-	<% if current_user then %>
-		<div class="d-flex flex-row">
-			<%= render "users/sidebar" %>
-			<%= render	partial: "job_list",
-									locals: { jobs: @jobs, show_sorting_bar: true } %>
-		</div>
-	<% else %>
+<% if current_user.present? then %>
+	<div class="home-page-login">
 		<%= render 	partial: "job_list",
-								locals: { jobs: @job, show_sorting_bar: true } %>
-	<% end %> <%# end - if current_user %>
-</div>
+							locals: { jobs: @jobs, show_sorting_bar: true } %>
+	</div>
+<% else %>
+	<div class="home-page">
+		<%= render 	partial: "job_list",
+							locals: { jobs: @jobs, show_sorting_bar: true } %>
+	</div>
+<% end %>
