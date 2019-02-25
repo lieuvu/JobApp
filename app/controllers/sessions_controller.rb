@@ -1,8 +1,19 @@
 class SessionsController < ApplicationController
+  
+  # ---------------
+  # Include helpers
+  # ---------------
+
   include SessionsHelper
   
+  # ------
+  # Layout
+  # ------
+
+  layout 'main_non_login'
+
   def new
-  	flash[:error] = nil
+    flash[:error] = nil
   end
 
   def create
