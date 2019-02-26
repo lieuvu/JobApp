@@ -8,26 +8,46 @@
 // ---------
 // Variables
 // ---------
-$page-margin: 45px;
+$page-margin: 30px;
 $main-background-color: #e6eaea;
 
-
+// -------
 // Commons
+// -------
 
-%page-shared {
+%page-non-login-shared {
   margin-top: $page-margin;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
 
+%page-login-shared {
+  width: calc(100% - 250px);
+  margin-top: $page-margin;
+  margin-left: auto;
+  padding: 0px 40px 40px 40px;
+  min-height: 100vh;
+}
+
 // ---------
 // Universal
 // ---------
 
-.view-content {
-	float: right;
-	
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+// -----------------
+// Style for headers
+// -----------------
+
+.header-wrapper {
+  height: 56px;
 }
 
 // -------------------
@@ -73,26 +93,12 @@ $main-background-color: #e6eaea;
 
 }
 
-// ---------------
-// Profile display
-// ---------------
+// --------------------------
+// Styles for home page login
+// --------------------------
 
-.profile-display p {
-	margin: 1em 1em;
-}
-
-.profile-display-tool {
-	float: right;
-	margin: 1em 1em;
-}
-
-// -----------------------------------
-// Background color for jobs list view
-// job show and profile display
-// -----------------------------------
-
-.profile-display {
-	background-color: #e6eaea;
+.home-page-login {
+  @extend %page-login-shared;
 }
 
 // ------------------------------
@@ -100,7 +106,7 @@ $main-background-color: #e6eaea;
 // ------------------------------
 
 .home-page {
-  @extend %page-shared;
+  @extend %page-non-login-shared;
 
   @include media-breakpoint-up(md) {
     width: 80%;
@@ -113,25 +119,6 @@ $main-background-color: #e6eaea;
   @include media-breakpoint-up(xl) {
     width: 60%;
   }
-
-  .job-sort-btn { 
-    padding-bottom: 15px;
-  }
-
-  &.login {
-    width: 100%;
-
-    .jobs-list {
-    
-      @include media-breakpoint-up(lg) {
-        min-width: 650px;
-      }
-  
-      @include media-breakpoint-up(xl) {
-        min-width: 750px;
-      }
-    }
-  }
 }
 
 // -----------------------
@@ -139,7 +126,7 @@ $main-background-color: #e6eaea;
 // -----------------------
 
 .signup-page {
-  @extend %page-shared;
+  @extend %page-non-login-shared;
 
   @include media-breakpoint-up(md) {
     width: 70%;
@@ -150,12 +137,33 @@ $main-background-color: #e6eaea;
   }
 }
 
-// -----------------------
+// ---------------------
 // Styles for login page
-// -----------------------
+// ---------------------
 
 .login-page {
-  @extend %page-shared;
+  @extend %page-non-login-shared;
+
+  @include media-breakpoint-up(md) {
+    width: 70%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 50%;
+  }
+
+  .form-group p {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+// --------------------------------
+// Styles for show access code page
+// --------------------------------
+
+.show-access-code-page{
+  @extend %page-non-login-shared;
 
   @include media-breakpoint-up(md) {
     width: 70%;
@@ -171,7 +179,10 @@ $main-background-color: #e6eaea;
 // ---------------------
 
 .about-page {
+  width: 80%;
   margin-top: $page-margin;
+  margin-left: auto;
+  margin-right: auto;
   
   .img-author {
     padding-right: 30px;
@@ -195,22 +206,7 @@ $main-background-color: #e6eaea;
 // --------------------------
 
 .jobs-login-page {
-  margin-top: $page-margin;
-
-  .job-sort-btn { 
-    padding-bottom: 15px;
-  }
-
-  .jobs-list {
-    
-    @include media-breakpoint-up(lg) {
-      min-width: 650px;
-    }
-
-    @include media-breakpoint-up(xl) {
-      min-width: 750px;
-    }
-  }
+  @extend %page-login-shared;
 }
 
 // ------------------------
@@ -218,7 +214,7 @@ $main-background-color: #e6eaea;
 // ------------------------
 
 .job-show-page {
-  margin-top: $page-margin;
+  @extend %page-login-shared;
 
   .job-show-detail-item {
     padding: 1em 1.5em;
@@ -235,13 +231,12 @@ $main-background-color: #e6eaea;
   }
 }
 
-
 // ----------------------------------------
 // Style for job edit page and job new page
 // ----------------------------------------
 
 .job-new-page, .job-edit-page {
-  margin-top: $page-margin;
+  @extend %page-login-shared;
 
   hr {
       height: 1px;
@@ -258,64 +253,94 @@ $main-background-color: #e6eaea;
     @include media-breakpoint-up(xl) {
       min-width: 750px;
     }
+
+    textarea {
+      height: 150px;
+    }
   }
 }
 
+// -------------------------
+// Style for job sort button
+// -------------------------
+
+.jobs-list {
+  margin-top: 15px;
+    
+  @include media-breakpoint-up(lg) {
+    min-width: 650px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    min-width: 750px;
+  }
+}
 
 // -----------------
 // Style for sidebar
 // ----------------
 
-.sidebar {
+#sidebar {
+  width: 250px;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: #5ea7ab;
+  color: #e8e6e6;
+  transition: all 0.3s;
 
-  @include media-breakpoint-up(lg) {
-    min-width: 200px;
+  &.active {
+    margin-left: -250px;
   }
 
-  @include media-breakpoint-up(xl) {
-    min-width: 250px;
+  ul {
+    
+    &.components {
+      padding: 20px 0;
+    }
+
+    li {
+      a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+
+        &:hover {
+          color: #210808;
+          background: #fff;
+        }
+      }
+
+      &.active {
+        a a[aria-expanded=true] {
+          color: #fff;
+          background: #6d7fcc;
+        }
+      }
+    }
   }
-
-  @include media-breakpoint-down(sm) {
-    max-width: 100px;
-  }
 }
 
-// ----------------
-// Styles for forms
-// ----------------
-
-
-.form-edit-job-element, .form-create-job-element, .form-edit-user-element {
-	padding-top: 7px;
-	padding-bottom: 7px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: 1em;
-	margin-right: 1em;
-	padding: 0;
+a[data-toggle="collapse"] {
+  position: relative;
 }
 
-// -----------------------
-// Style for logout button
-// -----------------------
+// ------------------------------
+// Style for profile display page
+// ------------------------------
 
-.logout-element input {
-	border: 0;
+.profile-display-page  {
+  @extend %page-login-shared;
 }
 
-#job_description_txt {
-	height: 15em;
-}
+// ---------------------------
+// Style for profile edit page
+// ---------------------------
 
-
-// ---------------------------------------
-// Style for element when no jobs availble
-// ---------------------------------------
-
-.center {
-	text-align: center;
-	color: #2a2720;
+.profile-edit-page  {
+  @extend %page-login-shared;
 }
 
 // ------------------------
@@ -323,16 +348,17 @@ $main-background-color: #e6eaea;
 // ------------------------
 
 .error {
-	padding-left: 3em;
-	padding-top: 0.25em;
-	padding-bottom: 0.25em;
-	margin: 1em 4em;
-	font-size: 18px;
-	font-weight: 900;
+  @extend %page-non-login-shared;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
 	color:  #ffffff;
-	background-color: #902;
-}
-
-.error p {
-	margin: 0;
+  background-color: #902;
+  
+  p {
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
