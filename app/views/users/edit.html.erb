@@ -1,29 +1,26 @@
-<%= render "application/error" %>
+<%= render partial: "layouts/error" %>
 
-<div class="container">
+<!-- Edit profile -->
+<div class="profile-edit-page" col-sm-8">
+	<h2>Edit Profile</h2>
+	<hr/>
+	<%= form_for (current_user), url: { action: "update" },
+				html: { class: "form-horizontal", id: "edit_user" },
+				method: :patch do |f| %>
 	
-	<%= render "users/sidebar"  %>
+		<div class="form-group">
+			<%= f.label :username, "Company Name:" %>
+			<%= f.text_field :username, class: "form-control", required: true %>
+		</div>
 
-	<div class="view-content col-sm-8">
-		<%= form_for (current_user), url: {action: "update"}, html: {class: "form-edit-user", id: "edit_user"}, method: :patch do |f| %>
-				<div class="form-edit-user-element">
-					<h2>Edit Profile</h2>
-					<hr/>
-				</div>
-			
-				<div class="form-edit-user-element">
-					<%= f.label :username, "Company Name:" %>
-					<%= f.text_field :username, class: "form-control", required: true%>
-				</div>
-				<div class="form-edit-user-element">
-					<%= f.label :email, "Email:" %>
-					<%= f.text_field :email, class: "form-control", id: "edit_user_email", required: true%>
-				</div>
-				<div class="form-edit-user-element">
-					<%= f.submit "Save", class: "col-sm-12 btn btn-primary"%>
-				</div>
-			
-		<% end %>
-	</div>
+		<div class="form-group">
+			<%= f.label :email, "Email:" %>
+			<%= f.text_field :email, class: "form-control", id: "edit_user_email", required: true %>
+		</div>
 
+		<div class="form-group">
+			<%= f.submit "Save", class: "col-sm-12 btn btn-primary" %>
+		</div>
+		
+	<% end %>
 </div>

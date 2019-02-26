@@ -1,10 +1,22 @@
 class UsersController < ApplicationController
-    include SessionsHelper
-    before_action :check_logged_in?, only: [:profile, :edit, :update]
   
-  def index
-  	
-  end
+  # ---------------
+  # Include helpers
+  # ---------------
+  
+  include SessionsHelper
+  
+  # --------------
+  # Filter methods
+  # --------------
+
+  before_action :check_logged_in?, only: [:profile, :edit, :update]
+  
+  # ------
+  # Layout
+  # ------
+
+  layout 'main_non_login'
 
   # GET /signup
   def new
@@ -20,10 +32,12 @@ class UsersController < ApplicationController
   		respond_to do |format|
 				if @user.save
 					format.html {render "show_access_code", notice: "User was successfully created"}
-					format.json {render action: 'new', status: :created}
+					format.json { render action: 'new', status: :created }
 				else
-					format.html {render action: 'new'}
-					format.json {render json: @user.errors, status: :unprocessable_entity}
+					format.html { render action: 'new' }
+          format.json do
+            render json: @user.errors, status: :unprocessable_entity
+          end
 				end
 			end
 		else
@@ -35,44 +49,42 @@ class UsersController < ApplicationController
 
   # GET /:user_id/profile
   def profile
-    render 'profile'
+    render layout: 'main_login'
   end
 
   # GET users/:user_id/edit
   def edit
-    render 'edit'
+    render layout: 'main_login'
   end
 
   # PATCH/PUT users/:user_id
   def update
-    temp = User.find_by_email(params[:user][:email])
+    another_user = User.find_by_email(params[:user][:email])
  
-    if temp && temp != current_user
+    if another_user.present? && another_user != current_user
       flash[:error] = "The email already existed"
       render 'edit'
     else
       respond_to do |format|
-        if current_user.update(test_params)
-          format.html {redirect_to profile_path(current_user), notice: "Job was successfully updated"}
-          format.json {render action: 'show', location: @job}
+        if current_user.update_attributes(test_params)
+          format.html { redirect_to profile_path(current_user) }
+          format.json { render action: 'show', location: @job }
         else
-          format.html {render action: 'edit'}
-          format.json {render json: @job.errors, status: :unprocessable_entity}
+          format.html { render action: 'edit' }
+          format.json do 
+            render json: @job.errors, status: :unprocessable_entity
+          end
         end
       end
     end
   end
  
-  private
+  private def test_params
+  	params.require(:user).permit(:email, :username)
+  end
 
-  	def test_params
-  		params.require(:user).permit(:email, :username)
-  	end
-
-    def check_logged_in?
-      if !logged_in?
-        redirect_to root_path
-      end
-    end
+  private def check_logged_in?
+    redirect_to root_path if current_user.blank?
+  end
 
 end

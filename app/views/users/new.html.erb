@@ -1,21 +1,19 @@
-<%= form_for (@user), url: {action: "create"}, html:{class: "form-signup form-horizontal col-sm-offset-2 col-sm-7", id: "new_user"} do |f| %>
-		<div class="form-signup-element">
-			<h2>Sign up to JobApp</h2>
-			<hr/>
-		</div>
-		
-		<div class="form-signup-element">
+<div class="signup-page">
+	<h2 class="text-center">Sign up to JobApp</h2>
+
+	<%= form_for @user, url: { action: "create" },
+				html: { class: "form-horizontal", id: "new_user"} do |f| %>
+		<div class="form-group">
 			<%= f.label :email, "Email: "%>
 			<%= f.text_field :email, class: "form-control", id: "new_user_email",required: true %>
 		</div>
-		<div class="form-signup-element">
+		<div class="form-group">
 			<%= f.label :username, "Company Name: " %>
-			<%= f.text_field :username, class: "form-control", required: true%>
-			
+			<%= f.text_field :username, class: "form-control", required: true %>
 		</div>
-
-		<div class="form-signup-element">
-			<%= f.submit "Create My Account", class: "col-sm-12 btn btn-primary"%>
+		<div class="form-group">
+			<%= f.submit "Create My Account", class: "col-sm-12 btn btn-primary" %>
 		</div>
-<% end %>
+	<% end %> <%# end - form_for %>
+</div>
 

@@ -1,10 +1,13 @@
-<%= render 'application/error'%>
+<div class="show-access-code-page">
+	<%= render partial: 'layouts/error'%>
 
-<div class="form-signup col-sm-offset-2 col-sm-7">
-		<h2><%= user_existed? %></h2>
-		<hr/>
+	<h2><%= user_existed? %></h2>
+	<hr/>
+	
+	<div>
 		<p><strong>Email: </strong> <%= @user.email %> </p>
 		<p><strong>Company Name: </strong> <%= @user.username %> </p>
 		<p><strong>Access Code: </strong> <%= @user.access_code %> </p>
 		
+	</div>
 </div>
