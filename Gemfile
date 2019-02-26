@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Ruby version
+ruby '2.6.1'
+
 # Ruby on Rails is a full-stack web framework optimized for programmer 
 # happiness and sustainable productivity. It encourages beautiful code by 
 # favoring convention over configuration.
