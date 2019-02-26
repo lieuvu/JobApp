@@ -46,6 +46,18 @@ gem 'jquery-rails', '4.3.3'
 #
 gem 'pg', '1.1.4'
 
+# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for 
+# Ruby/Rack applications. Puma is intended for use in both development and 
+# production environments. It's great for highly concurrent Ruby 
+# implementations such as Rubinius and JRuby as well as as providing process 
+# worker support to support CRuby well.
+#
+# Homepage: http://puma.io/
+# Source: https://github.com/puma/puma
+#
+gem 'puma', '3.12.0'
+
+
 # --------------------------------
 # Development and test environment
 # -------------------------------- 
