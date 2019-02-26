@@ -14,11 +14,10 @@
     <p><strong>Company: <%= User.find(job.user_id).username %></strong></p>
   </div>
   <% if current_user && editable %>
-    <div class="jobs-list-tool" >
+    <div class="jobs-list-tool">
       <%= link_to "Edit", edit_user_job_path(job.user_id, job.id) , class: "btn btn-primary" %>
       <%= link_to "Destroy", user_job_path(job.user_id, job.id),
             method: :delete, class: "btn btn-danger" %>
-      <hr>
     </div>
   <% end %>
 </div>
