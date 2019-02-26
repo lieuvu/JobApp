@@ -8,16 +8,16 @@
  */
 $(function() {
 
-	//Validate date in new_job form
+	// Validate date in new_job form
 	validateDateInForm("#new_job");
 
-	//Validate date in edit_job form
+	// Validate date in edit_job form
 	validateDateInForm("#edit_job");
 	
-	//Validate email in new_user form
+	// Validate email in new_user form
 	validateEmailInForm("#new_user");
 
-	//Validate email in edit_user form
+	// Validate email in edit_user form
 	validateEmailInForm("#edit_user");
 
 });
@@ -29,15 +29,15 @@ function validateDateInForm(form_id) {
 		var date = $(dateInputId).val();
 		var regex = /\d{2}.\d{2}.\d{4}/;
     
-    if (regex.test(date) == false || dateValidation(date) == false) {
-			clearErrorMsg();
-			$(this).before(error_element);
-			dispplayErrorMsg("Invalid Date Format or Value")
-			return false;
-		} else {
-			clearErrorMsg();
-			return true;
-		}
+		if (regex.test(date) == false || dateValidation(date) == false) {
+				clearErrorMsg();
+				$(this).before(error_element);
+				dispplayErrorMsg("Invalid Date Format or Value")
+				return false;
+			} else {
+				clearErrorMsg();
+				return true;
+			}
 	});
 }
 
