@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   		session[:id] = user.id
   		redirect_to root_path
   	else
-  		flash[:error] = "Invalid access_code"
+  		flash[:error] = "Invalid Access Code"
   		render 'sessions/new'
   	end
   end
