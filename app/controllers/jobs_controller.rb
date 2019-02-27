@@ -37,8 +37,8 @@ class JobsController < ApplicationController
         @jobs = Job.sort(params[:sort_by])
         return
       else
-        # Otherwise, find all jobs
-        @jobs = Job.all
+        # Otherwise, find all jobs that are still valid
+        @jobs = Job.where('date_valid >= ?', Time.zone.now.beginning_of_day)
       end
     else
       # Otherwise, the user is not logged in
@@ -46,7 +46,7 @@ class JobsController < ApplicationController
       if params[:sort_by].present? then
         @jobs = Job.sort(params[:sort_by])
       else
-        @jobs = Job.all
+        @jobs = Job.where('date_valid >= ?', Time.zone.now.beginning_of_day)
       end
 
       render layout: 'main_non_login'
