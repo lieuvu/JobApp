@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,23 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412091844) do
+ActiveRecord::Schema.define(version: 2016_04_12_091844) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "job_title",   null: false
-    t.text    "job_des"
-    t.date    "date_posted", null: false
-    t.date    "date_valid",  null: false
+    t.bigint "user_id"
+    t.string "job_title", null: false
+    t.text "job_des"
+    t.date "date_posted", null: false
+    t.date "date_valid", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
-
-  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "access_code"
     t.string "username"
-    t.string "role",        default: "Company"
+    t.string "role", default: "Company"
   end
 
 end
