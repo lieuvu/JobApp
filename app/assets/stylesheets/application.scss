@@ -108,6 +108,10 @@ a:focus {
 .home-page {
   @extend %page-non-login-shared;
 
+  @include media-breakpoint-up(xs) {
+    width: 85%;
+  }
+
   @include media-breakpoint-up(md) {
     width: 80%;
   }
@@ -128,8 +132,12 @@ a:focus {
 .signup-page {
   @extend %page-non-login-shared;
 
+  @include media-breakpoint-up(xs) {
+    width: 85%;
+  }
+
   @include media-breakpoint-up(md) {
-    width: 70%;
+    width: 55%;
   }
 
   @include media-breakpoint-up(lg) {
@@ -144,8 +152,12 @@ a:focus {
 .login-page {
   @extend %page-non-login-shared;
 
+  @include media-breakpoint-up(xs) {
+    width: 85%;
+  }
+
   @include media-breakpoint-up(md) {
-    width: 70%;
+    width: 55%;
   }
 
   @include media-breakpoint-up(lg) {
@@ -165,8 +177,12 @@ a:focus {
 .show-access-code-page{
   @extend %page-non-login-shared;
 
+  @include media-breakpoint-up(xs) {
+    width: 85%;
+  }
+
   @include media-breakpoint-up(md) {
-    width: 70%;
+    width: 55%;
   }
 
   @include media-breakpoint-up(lg) {
