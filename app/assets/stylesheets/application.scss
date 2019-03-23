@@ -65,18 +65,18 @@ a:focus {
       color: #000000;
     }
   }
-    
+
   .jobs-list-date-posted {
     float: right;
     margin-right: 1em;
   }
-  
+
   .jobs-list-company-name {
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: 1em;
   }
-  
+
   hr {
     margin: 0.5em 1em;
   }
@@ -199,7 +199,7 @@ a:focus {
   margin-top: $page-margin;
   margin-left: auto;
   margin-right: auto;
-  
+
   .img-author {
     padding-right: 30px;
 
@@ -245,6 +245,19 @@ a:focus {
       min-width: 750px;
     }
   }
+
+  &.job-non-login {
+    @extend %page-non-login-shared;
+
+    .job-show-detail-item {
+      margin: auto;
+
+      @include media-breakpoint-up(lg) {
+        max-width: 650px;
+      }
+    }
+
+  }
 }
 
 // ----------------------------------------
@@ -261,11 +274,11 @@ a:focus {
 
   .job-form {
     margin-left: 1em;
-  
+
     @include media-breakpoint-up(lg) {
       min-width: 650px;
     }
-  
+
     @include media-breakpoint-up(xl) {
       min-width: 750px;
     }
@@ -282,7 +295,7 @@ a:focus {
 
 .jobs-list {
   margin-top: 15px;
-    
+
   @include media-breakpoint-up(lg) {
     min-width: 650px;
   }
@@ -312,7 +325,7 @@ a:focus {
   }
 
   ul {
-    
+
     &.components {
       padding: 20px 0;
     }
@@ -371,7 +384,7 @@ a[data-toggle="collapse"] {
   font-size: 1.3rem;
 	color:  #ffffff;
   background-color: #902;
-  
+
   p {
     margin: auto;
     padding-top: 5px;

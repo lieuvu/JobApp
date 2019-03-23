@@ -1,4 +1,7 @@
-<div class="job-show-page">
+<%
+	non_login_class = local_assigns[:non_login_class] || ""
+%>
+<div class="job-show-page <%= non_login_class %>">
 	<div class="job-show-detail-item">
 		<h2>Job Titile: <%= @job.job_title%></h2>
 		<p class="lead">Company: <%= User.find(@job.user_id).username %></p>

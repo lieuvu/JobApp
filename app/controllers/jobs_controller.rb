@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  
+
   # ---------------
   # Include helpers
   # ---------------
@@ -19,8 +19,8 @@ class JobsController < ApplicationController
   # ------
 
   layout 'main_login'
-  
-  
+
+
   #GET /jobs
   #GEt /jobs.json
   def index
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
       # If has user id
       if params[:user_id] then
         @jobs = Job.where(user_id: current_user.id)
-        render 'jobs_posted' 
+        render 'jobs_posted'
       end
 
       # Find jobs with params sort by
@@ -52,7 +52,7 @@ class JobsController < ApplicationController
       render layout: 'main_non_login'
     end # end if current user
   end
-  
+
   # GET /users/:user_id/jobs/new
   def new
     if !current_user.nil? && current_user.role.downcase == 'company'
@@ -66,13 +66,17 @@ class JobsController < ApplicationController
   # GET /jobs/1.json
   def show
     @job = Job.find(params[:id])
+    if not current_user then
+      render  layout: 'main_non_login',
+              locals: { non_login_class: "job-non-login" }
+    end
   end
 
   # POST /users/:user_id/jobs
   # POST /users/:user_id/jobs.json
   def create
     @job = Job.new(test_params)
-        
+
     respond_to do |format|
       if @job.save
         format.html do
